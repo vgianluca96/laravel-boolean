@@ -10,6 +10,7 @@ class CocktailController extends Controller
 {
     public function index()
     {
+
         $cocktails = Cocktail::all();
         //$projects = Project::orderByDesc('id')->paginate(5);
         return response()->json([

@@ -23,20 +23,26 @@
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">Thumb</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Ingredient 1</th>
-                        <th scope="col">Ingredient 2</th>
-                        <th scope="col">Ingredient 3</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Alcoholic</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($cocktails as $cocktail)
                         <tr>
                             <th scope="row">{{ $cocktail->id }}</th>
-                            <td>{{ $cocktail->name }}</td>
-                            <td>{{ $cocktail->ingredient_1 }}</td>
-                            <td>{{ $cocktail->ingredient_2 }}</td>
-                            <td>{{ $cocktail->ingredient_3 }}</td>
+                            <td><img src="{{ $cocktail->strDrinkThumb }}" alt="" width="100"></td>
+                            <td>{{ $cocktail->strDrink }}</td>
+                            <td>{{ $cocktail->strCategory }}</td>
+                            <td>
+                                @if ($cocktail->strAlcoholic)
+                                    yes
+                                @else
+                                    no
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
